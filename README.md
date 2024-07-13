@@ -1,42 +1,57 @@
-# wazuh
-Wazuh Automatic Reporting with Selenium
+# Wazuh Automatic Reporting with Selenium
 
-# Installing selenium and chromium for macOS
+This guide explains how to set up and use Selenium with Chromium on macOS to automate reporting for Wazuh.
 
+## Installation Instructions
+
+### Step 1: Update Homebrew and Install Dependencies
+Open your terminal and run the following commands:
+
+```bash
 brew update
-
 brew install python
-
 brew install --cask google-chrome
-
 brew install chromedriver
+ ```
+ ### Step 2: Install Python Packages
+ Create a virtual environment and install Selenium:
 
-pip install selenium
-
+```bash
 python3 -m venv myenv
-
 source myenv/bin/activate
-
 pip install selenium
+ ```
+### Step 3: Configure Python Files
+Open the Python files and fill in the necessary settings according to your Wazuh setup:
 
-# After installation, configure the empty sections in the Python files according to your wazuh settings and system settings.
+Download Directory: Specify the directory where you want to download files:
+```bash
+download_dir = "path/to/download/directory"
+```
+Wazuh URL: Enter the URL for your Wazuh instance:
+```bash
+wazuhUrl = "http://your-wazuh-url"
+```
+Login Credentials: Enter your Wazuh login username and password:
 
-# Specify the directory to download from
-download_dir = "" 
+```bash
+loginUsername.send_keys("your-username")
+loginPassword.send_keys("your-password")
+```
 
-# enter wazuh url
-wazuhUrl = ""
+### Step 4: Adjust Reporting Interval
+If you want to change the duration of automatic reporting, modify the value of the sleep function in the run_script.sh file. The default is set to 1800 seconds (30 minutes):
 
-# enter username
-loginUsername.send_keys("")
+```bash
+sleep 1800
+```
+# Running the Script
 
-# enter password 
-loginPassword.send_keys("")
+### Step 5: Authorize and Execute the Bash Script
+Make the bash script executable and run it:
 
-# If you want to change the duration of automatic reporting, change the value of the sleep function under the run_script.sh file.
-sleep 1800 default
-
-# After doing this for each python file authorize the bash file and run
+```bash
 chmod +x run_script.sh
-
 ./run_script.sh
+```
+By following these steps, you should be able to set up and run the Selenium scripts for automated reporting with Wazuh on macOS.
