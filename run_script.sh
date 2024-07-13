@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ 
 # Array of Python scripts to execute
 scripts=(
     "FIMReport.py"

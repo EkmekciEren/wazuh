@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException
 from webdriver_manager.chrome import ChromeDriverManager
 import time
-
+ 
 # Specify the file path to download
 download_dir = ""
 # Configure Chrome options
